@@ -1,0 +1,44 @@
+if [ ! -f $CACHE_DIR/.vendor/freetds-version ]; then
+   bpwatch start install_freetds
+
+      if [ -n "$CC" ]; then
+         OLD_CC=$(CC)
+      fi
+      if [ -n "$CFLAGS" ]; then
+         OLD_CFLAGS=$(CFLAGS)
+      fi
+
+      mkdir -p $CACHE_DIR/.vendor/gawk
+      mkdir -p $CACHE_DIR/.vendor/odbc
+      mkdir -p $BUILD_DIR/.vendor/odbc
+      
+
+
+      puts-step "Fetching FreeTDS"
+	    cd $ROOT_DIR/vendor/
+      cd $CACHE_DIR/.vendor/odbc
+     curl -O http://www.unixodbc.org/unixODBC-2.3.4.tar.gz > /dev/null 2>&1
+      tar -xzf unixODBC-2.3.4.tar.gz
+      ls -alth
+      #cp -r $ROOT_DIR/vendor/freetds-0.91 $BUILD_DIR/.vendor/freetds
+      cp $CACHE_DIR/.vendor/odbc/unixODBC-2.3.4/ $BUILD_DIR/.vendor/odbc/
+      cd $BUILD_DIR/.vendor/odbc/unixODBC-2.3.4/
+      pwd
+      ls -alth
+      ls .. -alth
+      puts-step "Installing unixODBC"
+      ./configure --prefix=$BUILD_DIR | indent
+      make | indent
+      make install | indent
+
+      if [ -n "$OLD_CC" ]; then
+         CC=$(OLD_CC)
+      fi
+      if [ -n "$OLD_CFLAGS" ]; then
+         CFLAGS=$(OLD_CFLAGS)
+      fi
+
+      cd $BUILD_DIR
+
+   bpwatch stop install_freetds
+fi

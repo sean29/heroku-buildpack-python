@@ -170,6 +170,10 @@ fi
 # install freetds
 source "$BIN_DIR/steps/freetds"
 
+# install freetds
+source "$BIN_DIR/steps/unixodbc"
+
+
 # Fix egg-links.
 # shellcheck source=bin/steps/eggpath-fix
 source "$BIN_DIR/steps/eggpath-fix"
