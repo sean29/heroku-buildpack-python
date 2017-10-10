@@ -1,5 +1,5 @@
 if [ ! -f $CACHE_DIR/.vendor/freetds-version ]; then
-   bpwatch start install_freetds
+
 
       if [ -n "$CC" ]; then
          OLD_CC=$(CC)
@@ -45,5 +45,5 @@ if [ ! -f $CACHE_DIR/.vendor/freetds-version ]; then
 
       cd $BUILD_DIR
 
-   bpwatch stop install_freetds
+
 fi
