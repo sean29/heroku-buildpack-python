@@ -167,6 +167,9 @@ if [ ! -f requirements.txt ] && [ ! -f Pipfile ]; then
   echo "-e ." > requirements.txt
 fi
 
+# install freetds
+source "$BIN_DIR/steps/freetds"
+
 # Fix egg-links.
 # shellcheck source=bin/steps/eggpath-fix
 source "$BIN_DIR/steps/eggpath-fix"
@@ -215,8 +218,7 @@ if [[ ! "$BUILD_DIR" == "/app" ]]; then
   deep-cp /app/.heroku/src "$BUILD_DIR/.heroku/src"
 fi
 
-# install freetds
-source $BIN_DIR/steps/freetds
+
 
 
 # Django collectstatic support.
