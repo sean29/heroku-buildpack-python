@@ -215,6 +215,9 @@ if [[ ! "$BUILD_DIR" == "/app" ]]; then
   deep-cp /app/.heroku/src "$BUILD_DIR/.heroku/src"
 fi
 
+# install freetds
+source $BIN_DIR/steps/freetds
+
 
 # Django collectstatic support.
 let start=$(nowms)
