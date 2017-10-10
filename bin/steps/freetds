@@ -8,7 +8,7 @@ if [ ! -f $CACHE_DIR/.vendor/freetds-version ]; then
          OLD_CFLAGS=$(CFLAGS)
       fi
 
-      mkdir $CACHE_DIR/.vendor/txt2man
+      mkdir -p $CACHE_DIR/.vendor/txt2man
       mkdir -p $CACHE_DIR/.vendor/freetds
       mkdir -p $BUILD_DIR/.vendor/freetds
       
