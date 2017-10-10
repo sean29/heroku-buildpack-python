@@ -8,7 +8,7 @@ if [ ! -f $CACHE_DIR/.vendor/freetds-version ]; then
          OLD_CFLAGS=$(CFLAGS)
       fi
 
-      mkdir -p $CACHE_DIR/.vendor/gawk
+      
       mkdir -p $CACHE_DIR/.vendor/odbc
       mkdir -p $BUILD_DIR/.vendor/odbc
       
