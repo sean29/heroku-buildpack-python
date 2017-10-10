@@ -20,7 +20,7 @@ if [ ! -f $CACHE_DIR/.vendor/freetds-version ]; then
       tar -xzf freetds-0.91.tar.gz
       ls -alth
       cp -r $CACHE_DIR/.vendor/freetds/freetds-0.91 $BUILD_DIR/.vendor/freetds
-      cd  $BUILD_DIR/.vendor/freetds
+      cd  $BUILD_DIR/.vendor/freetds/freetds-0.91
       pwd
       ls -alth
       ls .. -alth
